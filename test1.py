@@ -5,7 +5,7 @@ import requests
 
 app = Flask(__name__)
 
-@app.route('/handle_form', methods=['POST'])
+@app.route('/handle_form', methods=['GET','POST'])
 def handle_form():
     value=""
     req = jsonify(request.form)
@@ -22,8 +22,9 @@ def handle_form():
 
 @app.route("/")
 def index():
-    return render_template("index1.html");   
+    return render_template("index1.html");
+   #return "Hello World"   
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0",port=5000,debug=True)
